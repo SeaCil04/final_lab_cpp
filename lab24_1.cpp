@@ -64,3 +64,19 @@ void List::append(int d){
 }
 
 //Write List::remove() here
+void List::remove(int idx){
+    Node *current = root;
+    if(idx == 0){
+        root = root->next;
+        delete current;
+    }else{
+        Node *preroot = root;
+        for(int i =0;i<idx-1;i++){
+            preroot = preroot->next;
+        }
+        current = preroot->next; 
+        preroot->next = current->next;
+        delete current;
+    }
+    size--;
+}
